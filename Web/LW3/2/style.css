@@ -1,0 +1,13 @@
+
+ * {
+    color: red;
+ }
+
+ p>em {
+    color: orange;
+ }
+
+ br+em+br+em {
+    color:
+       blue;
+ }

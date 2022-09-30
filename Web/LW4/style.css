@@ -1,0 +1,88 @@
+ .container{
+    max-width: 250px;
+    max-height: 300px;
+    margin: 0 auto;
+ }
+ .green{
+    width: 500px;
+    height: 600px;
+    border: solid green;
+ }
+ .tableblue4, tr, th{
+    width: 99%;
+    height: 5%;
+    margin: auto;
+    margin-top: 2px;
+    border:  solid red;
+ }
+ .tableblue4 tr th:nth-child(1){
+    border-color: blue;
+    width: 28%;
+ }
+ .tableblue4 tr th:nth-child(2){
+    border-color: blue;
+    width: 22%;
+ }
+ .tableblue4 tr th:nth-child(3){
+    border-color: blue;
+    width: 22%;
+ }
+ .tableblue4 tr th:nth-child(4){
+    border-color: blue;
+    width: 28%;
+ }
+ .tableblue3, tr, th{
+    width: 99%;
+    height: 25%;
+    margin: auto;
+    margin-top: 2px;
+    border:  solid red;
+ }
+ .tableblue3 tr th:nth-child(1){
+    border-color: blue;
+    width: 25%;
+ }
+ .tableblue3 tr th:nth-child(2){
+    border-color: blue;
+    width: 50%;
+ }
+ .tableblue3 tr th:nth-child(3){
+    width: 25%;
+    border-color: blue;
+ }
+ .tableblue2, tr, th{
+    width: 99%;
+    height: 44.7%;
+    margin: auto;
+    margin-top: 2px;
+    border:  solid red;
+ }
+ .tableblue2 tr th:nth-child(1){
+    width: 25%;
+    border-color: blue;
+ }
+ .tableblue2 tr th:nth-child(2){
+    width: 75%;
+    border-color: blue;
+ }
+ .yellow90{
+    margin: auto;
+    margin-bottom: 1%;
+    width: 98%;
+    height: 87%;
+    border: solid rgb(255, 200, 0);
+ }
+ .yellow50{
+    margin: auto;
+    margin-bottom: 3%;
+    margin-top: 2%;
+    width: 92%;
+    height: 48%;
+    border: solid rgb(255, 200, 0);
+ }
+ .yellow10{
+    margin: auto;
+    width: 98%;
+    height: 10%;
+    border: solid rgb(255, 200, 0);
+ }

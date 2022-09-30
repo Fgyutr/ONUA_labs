@@ -1,0 +1,10 @@
+#red{
+    color: red;
+}
+.blue{
+    color: blue;
+    font-weight: bold;
+}
+span[title]{
+    color :green;
+}
