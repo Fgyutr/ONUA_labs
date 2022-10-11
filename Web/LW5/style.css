@@ -9,7 +9,7 @@ body {
 }
 header {
     height: 75px;
-    background: rgb(255, 166, 107);
+    background: rgb(252, 75,56);
 }
 .list {
     list-style: none;
@@ -30,16 +30,16 @@ section {
 .description {
     margin-top: 20px;
 }
-.section-blue {
+.blue {
     
-    background: rgb(0, 106, 255);
+    background: rgb(158, 207, 224);
 }
-.section-green {
-    background: rgb(34, 255, 0);
+.green {
+    background: rgb(129, 239, 125);
 }
 footer {
     height: 75px;
-    background: rgb(105, 0, 167);
+    background: rgb(128,0,128);
     display: flex;
     justify-content: center;
     align-items: center;
