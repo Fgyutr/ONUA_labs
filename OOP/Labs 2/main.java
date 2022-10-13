@@ -8,7 +8,6 @@ public class main {
         }
         return true;
     }
-
     static int method2(String str) {
         int sum = 0;
         for (int i = 0; i < str.length(); i++) {
@@ -18,7 +17,6 @@ public class main {
         }
         return sum;
     }
-
     static int method3(String str) {
         char c = str.charAt(0);
         int max = 0;
@@ -35,7 +33,6 @@ public class main {
         }
         return max;
     }
-
     static void method4(String str) {
         String delimitr = " ";
         String[] subStr = str.split(delimitr);
@@ -43,7 +40,6 @@ public class main {
             System.out.println(subStr[i]);
         }
     }
-
     static String method5(String A, String B) {
         String result = "";
         int len = Math.min(A.length(), B.length());
@@ -53,12 +49,16 @@ public class main {
         result = result + A.substring(len) + B.substring(len);
         return result;
     }
-
     public static void main(String[] args) {
+        System.out.println("Task1");
         System.out.println(method1("fored"));
+        System.out.println("Task2");
         System.out.println(method2("qwerty1"));
+        System.out.println("Task3");
         System.out.println(method3("qqwwweeeerty1"));
+        System.out.println("Task4");
         method4("Мозговой Максим Викторович");
+        System.out.println("Task5");
         System.out.println(method5("Вася", "123456789"));
     }
 }

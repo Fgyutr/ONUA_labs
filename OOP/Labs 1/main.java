@@ -50,6 +50,7 @@ class main {
         int mass2[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         int mass3[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         int result = method1(mass1);
+        System.out.println("Task1");
         if (result == 2) {
             System.out.println("позаботьтесь про ввод большего количества данных!");
         } else if (result == 1) {
@@ -73,10 +74,10 @@ class main {
         } else {
             System.out.println(false);
         }
-
+        System.out.println("Task2");
         method2();
         System.out.println("");
-
+        System.out.println("Task3");
         result = method3(mass1);
         if (result == 2) {
             System.out.println("исправте ввод!");
