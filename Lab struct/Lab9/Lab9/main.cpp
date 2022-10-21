@@ -177,3 +177,9 @@ int main() {
     system("pause");
     return 0;
 }
+<<<<<<< Updated upstream
+=======
+
+
+// 44 49 65 42 19 91 66 87 57 24 14 6 95 75 99
+>>>>>>> Stashed changes
