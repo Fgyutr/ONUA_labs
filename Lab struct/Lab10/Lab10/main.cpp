@@ -2,25 +2,22 @@
 #include <cmath>
 using namespace std;
 struct BinTree {
-    int value; //содержит значение
-    BinTree* left;//адрес левого поддерева
-    BinTree* right;//адрес правого поддерева
+    int value;
+    BinTree* left, *right;
 };
-//Функция для создания дерева
-//Вход: значение будущего узла,узел бинарного дерева
-//Выход: упорядоченое бинарное деревоб,заполеное значениями
+
 void newBinTree(int val, BinTree** Tree) {
     if ((*Tree) == NULL)
     {
-        (*Tree) = new BinTree; //Выделить память
-        (*Tree)->value = val;  //Поместить в выделенное место аргумент
+        (*Tree) = new BinTree;
+        (*Tree)->value = val;
         (*Tree)->left = (*Tree)->right = NULL;
         return;
     }
-    if (val > (*Tree)->value) newBinTree(val, &(*Tree)->right);//Если аргумент больше чем текущий элемент, поместить его вправо
-    else newBinTree(val, &(*Tree)->left);//Иначе поместить его влево
+    if (val > (*Tree)->value) newBinTree(val, &(*Tree)->right);
+    else newBinTree(val, &(*Tree)->left);
 }
-//Для печати дерева
+
 void Print(BinTree**Tree, int l)
 {
     int i;
@@ -50,6 +47,7 @@ void TreeTraversalAndPrint2(BinTree* Root) {
         cout << Root->value << endl;
     }
 }
+
 void TreeTraversalAndPrint3(BinTree* Root) {
     if (Root != NULL) {
         TreeTraversalAndPrint2(Root->left);
@@ -57,9 +55,7 @@ void TreeTraversalAndPrint3(BinTree* Root) {
         TreeTraversalAndPrint2(Root->right);
     }
 }
-//Так как в бинарном дереве поиска для каждого узла справедливо, что left < right,
-//то соответственно для нахождения наименьшенго элемента
-//надо топать от корня по левым веткам до упора - там и будет наименьший.
+
 BinTree* MinValue(BinTree* Tree)
 {
     if (Tree->left != NULL) {
@@ -69,9 +65,6 @@ BinTree* MinValue(BinTree* Tree)
         return Tree;
     }
 }
-//Так как в бинарном дереве поиска для каждого узла справедливо, что left < right,
-//то соответственно для нахождения наибольшего элемента
-//надо топать от корня по правым веткам до упора - там и будет наибольший.
 BinTree* MaxValue(BinTree* Tree)
 {
     if (Tree->right != NULL) {
@@ -81,6 +74,7 @@ BinTree* MaxValue(BinTree* Tree)
         return Tree;
     }
 }
+
 int NumberOfNodes(BinTree* Tree) {
     if (Tree == NULL) return 0;
     return NumberOfNodes(Tree->left) + 1+ NumberOfNodes(Tree->right);
@@ -94,21 +88,24 @@ int ListCount(BinTree* node)
         return 1;
     return  ListCount(node->left) + ListCount(node->right);
 }
- 
-//Высота(максимальная глубина) дерева определяется количеством уровней,
-//на которых располагаются его вершины.
-//Высота пустого дерева равна нулю, высота дерева из одного корня – единице.
-//На первом уровне дерева может быть только одна вершина – корень дерева,
-//на втором – потомки корня дерева, на третьем – потомки потомков корня дерева и т.д.
+
+int List(BinTree* node)
+{
+    if (!node)
+        return 1;
+    if (!node->left && !node->right)
+        return node->value;
+    return  ListCount(node->left) * ListCount(node->right);
+}
+
 int HeightBTree(BinTree* Tree) {
     int x = 0, y = 0;
-    if (Tree == NULL) return 0;     //пустое дерево или дошли до листа
-    if(Tree->left) x = HeightBTree(Tree->left); //высота левого поддерева
-    if (Tree->right) y = HeightBTree(Tree->right);  //высота правого поддерева
-    if (x > y) return x + 1;    //+1 от корня к левому поддереву
-    else return y + 1;   //+1 от корня к правому поддереву
+    if (Tree == NULL) return 0;
+    if(Tree->left) x = HeightBTree(Tree->left);
+    if (Tree->right) y = HeightBTree(Tree->right);
+    if (x > y) return x + 1;
+    else return y + 1;
 }
-//поиск элемента в бинарном дереве поиска
 BinTree* Search(BinTree* Tree, int key) {
     if (Tree == NULL) return NULL;
     if  (Tree->value == key) return Tree;
@@ -117,21 +114,55 @@ BinTree* Search(BinTree* Tree, int key) {
         return Search(Tree->right, key);
 }
  
- 
-void DestroyBTree(BinTree* Tree) {
+BinTree* DestroyBTree(BinTree* Tree) {
     if (Tree != NULL) {
         DestroyBTree(Tree->left);
         DestroyBTree(Tree->right);
         delete(Tree);
     }
+    return NULL;
 }
-void MenuProc() {
+
+BinTree* DestroyNode(BinTree* TreeRoot, BinTree* TreeNode)
+{
+    if (TreeRoot != NULL && TreeNode != NULL) {
+        if (TreeRoot->value == TreeNode->value) {
+            TreeRoot = DestroyBTree(TreeRoot);
+        }
+        else if (TreeRoot->value < TreeNode->value && TreeRoot->right && TreeRoot->right->value != TreeNode->value)
+        {
+            DestroyNode(TreeRoot->right, TreeNode);
+        }
+        else if (TreeRoot->value > TreeNode->value && TreeRoot->left && TreeRoot->left->value != TreeNode->value)
+        {
+            DestroyNode(TreeRoot->left, TreeNode);
+        }
+        else if (TreeRoot->value < TreeNode->value && TreeRoot->right->value == TreeNode->value)
+        {
+            DestroyBTree (TreeNode);
+            TreeRoot->right = NULL;
+        }
+        else if (TreeRoot->value > TreeNode->value && TreeRoot->left->value == TreeNode->value)
+        {
+            DestroyBTree (TreeNode);
+            TreeRoot->left = NULL;
+        }
+    }
+    else
+    {
+        return NULL;
+    }
+    return TreeRoot;
+}
+ 
+int main() {
     BinTree* Tree = NULL;
-    char variant;
     int val;
-    cout << "Для проверки дерева его необходимо создать" << endl;
-    while (cin.get() != 27) {
-        cout << "ведите значение (для завершения ввода нажмите ESC) ";
+    int count;
+    cout << "ведите кол-во значений: " << endl;
+    cin >> count;
+    for (int i(0); i<count; i++) {
+        cout << "ведите значение: " << endl;
         cin >> val;
         newBinTree(val, &Tree);
     }
@@ -159,6 +190,9 @@ void MenuProc() {
     cout << "Количество листов в дереве-> ";
     int b = ListCount(Tree);
     cout << b<< endl;
+    cout << "Произведение листьев в дереве-> ";
+    long bl = List(Tree);
+    cout << bl << endl;
     cout << "Поиск элемента" << endl;
     int key;
     cout << "Введите значение элемента для поиска-> ";
@@ -169,17 +203,23 @@ void MenuProc() {
     else
         cout << "Ваш элемент->" << Tree1->value;
     cout << endl;
+    cout << "Введите значение элемента для поиска и удаления-> ";
+    cin >> key;
+    Tree1 = Search(Tree,key);
+    if (Tree1 == NULL)
+        cout << "Элемент не найден";
+    else
+        cout << "Ваш элемент->" << Tree1->value;
+    cout << endl;
+    Tree = DestroyNode(Tree,Tree1);
+    Print(&Tree, 0);
+    Tree = DestroyBTree(Tree);
+    if (Tree) {
+        Print(&Tree, 0);
+    }
+    else
+        cout << "Empty" << endl;
     DestroyBTree(Tree);
-}
- 
-int main() {
-    MenuProc();
     system("pause");
     return 0;
 }
-<<<<<<< Updated upstream
-=======
-
-
-// 44 49 65 42 19 91 66 87 57 24 14 6 95 75 99
->>>>>>> Stashed changes
