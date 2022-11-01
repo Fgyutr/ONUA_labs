@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f40fd5b04a.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="wrapper__logo">
+                <i class="fa-brands fa-free-code-camp wrapper__logo_icon"></i>
+                <div class="wrapper__logo_text">nameless</div>
+            </div>
+
+            <div class="wrapper__info">
+                <div class="wrapper__title">Welcome back</div>
+                <div class="wrapper__subtitle">Please enter your contact details to connect.</div>
+                
+                <form class="form" action="#">
+                    <div class="form__name">Email address</div>
+                    <input class="form__input" name="email" required placeholder="name@compagny.com" type="email">
+                    <div class="form__name">Password</div>
+                    <input class="form__input" name="password" required placeholder="password" type="password">
+
+                    <div class="form__checkbox">
+                        <input class="form__checkbox__input" type="checkbox" id="checkbox_1">
+                        <label class="form__checkbox__label" for="checkbox_1">Remember me</label>
+                        <a href="#" class="form__password">Forgot password</a>
+                    </div>
+                    
+                    <button class="btn">Log in</button>
+                </form>
+                
+                <button class="btn btn_2"><img src="images/google.svg" alt="">Log in with Google</button>
+                <div class="form__account">Don’t have an account ?<a href="#">Sign up here</a></div>
+            </div>            
+        </div>
+
+        <div class="wrapper">
+            <img class="wrapper__img" src="images/Image.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
