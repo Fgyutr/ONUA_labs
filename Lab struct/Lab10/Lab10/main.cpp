@@ -159,10 +159,10 @@ int main() {
     BinTree* Tree = NULL;
     int val;
     int count;
-    cout << "ведите кол-во значений: " << endl;
+    cout << "Введите кол-во значений: " << endl;
     cin >> count;
     for (int i(0); i<count; i++) {
-        cout << "ведите значение: " << endl;
+        cout << "Введите значение: " << endl;
         cin >> val;
         newBinTree(val, &Tree);
     }
