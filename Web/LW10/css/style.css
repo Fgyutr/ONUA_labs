@@ -10,34 +10,34 @@ h1 {
 }
 h1:hover {
     text-shadow: 5px 5px 1px rgb(190, 190, 190);
-    color: blueviolet; 
+    color: rgb(43, 226, 43); 
 }
 .blocks>* {
     width: 200px;
     height: 100px;
-    background-color: #000;
+    background-color: rgb(205, 122, 14);
     margin-top: 15px;
 }
 .block_1:hover {
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;
-    background-color: blueviolet;
+    background-color: rgb(5, 251, 136);
 }
 .block_2:hover {
-    border: 10px inset rgb(192, 18, 149);
-    background-color: blueviolet;
+    border: 10px inset rgb(235, 99, 201);
+    background-color: rgb(5, 251, 136);
 }
 .block_3:hover {
     outline: solid red 5px;
     outline-offset: 5px;
-    background-color: blueviolet;
-    border: 5px inset rgb(0, 0, 0);
+    background-color: rgb(5, 251, 136);
+    border: 5px inset rgb(255, 0, 0);
 }
 .block_4:hover {
     height: 90px;
     width: 250px;
-    background-color: blueviolet;
-    box-shadow: 0px 10px 20px rgb(109, 104, 104);
+    background-color: rgb(5, 251, 136);
+    box-shadow: 0px 10px 20px rgb(80, 80, 80);
 }
 @keyframes circle {
     from{
@@ -65,8 +65,8 @@ h1:hover {
     margin-top: 50px;
 }
 .preloader_1 {
-    border: 10px solid rgba(255, 0, 0, 0.3);
-    border-left-color: red;
+    border: 10px solid rgb(0, 255, 0);
+    border-left-color: rgb(0, 0, 255);
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -132,7 +132,7 @@ h1:hover {
     margin: 25px auto;
     font-size: 100px;
     text-align: center;
-    background-color: #000000;
+    background-color: #282828;
     width: 500px;
     border-radius: 30px;
 }
@@ -148,23 +148,23 @@ h1:hover {
     color: red;
 }
 .word div:nth-of-type(2) {
-    animation-delay: 0.5s;
+    animation-delay: 0.25s;
     color: orange;
 }
 .word div:nth-of-type(3) {
-    animation-delay: 1s;
+    animation-delay: 0.5s;
     color:yellow;
 }
 .word div:nth-of-type(4) {
-    animation-delay: 1.5s;
+    animation-delay: 0.75s;
     color:green;
 }
 .word div:nth-of-type(5) {
-    animation-delay: 2s;
+    animation-delay: 1s;
     color:blue;
 }
 .word div:nth-of-type(6) {
-    animation-delay: 2.5s;
+    animation-delay: 1.25s;
     color:violet;
 }
 
