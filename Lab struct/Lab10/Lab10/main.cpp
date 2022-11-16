@@ -1,12 +1,14 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-struct BinTree {
+struct BinTree
+{
     int value;
     BinTree* left, *right;
 };
 
-void newBinTree(int val, BinTree** Tree) {
+void newBinTree(int val, BinTree** Tree)
+{
     if ((*Tree) == NULL)
     {
         (*Tree) = new BinTree;
@@ -21,7 +23,6 @@ void newBinTree(int val, BinTree** Tree) {
 void Print(BinTree**Tree, int l)
 {
     int i;
- 
     if (*Tree != NULL)
     {
         Print(&((**Tree).right), l + 1);
@@ -31,51 +32,63 @@ void Print(BinTree**Tree, int l)
     }
 }
  
-void TreeTraversalAndPrint(BinTree* Root) {
-    if (Root != NULL) {
-        cout << Root->value << endl;
+void TreeTraversalAndPrint(BinTree* Root)
+{
+    if (Root != NULL)
+    {
+        cout << Root->value << " ";
         TreeTraversalAndPrint(Root->left);
         TreeTraversalAndPrint(Root->right);
  
     }
+    
 }
  
-void TreeTraversalAndPrint2(BinTree* Root) {
-    if (Root != NULL) {
+void TreeTraversalAndPrint2(BinTree* Root)
+{
+    if (Root != NULL)
+    {
         TreeTraversalAndPrint2(Root->left);
         TreeTraversalAndPrint2(Root->right);
-        cout << Root->value << endl;
+        cout << Root->value << " ";
     }
 }
 
-void TreeTraversalAndPrint3(BinTree* Root) {
-    if (Root != NULL) {
+void TreeTraversalAndPrint3(BinTree* Root)
+{
+    if (Root != NULL)
+    {
         TreeTraversalAndPrint2(Root->left);
-        cout << Root->value << endl;
+        cout << Root->value << " ";
         TreeTraversalAndPrint2(Root->right);
     }
 }
 
 BinTree* MinValue(BinTree* Tree)
 {
-    if (Tree->left != NULL) {
+    if (Tree->left != NULL)
+    {
         return MinValue(Tree->left);
     }
-    else {
+    else
+    {
         return Tree;
     }
 }
 BinTree* MaxValue(BinTree* Tree)
 {
-    if (Tree->right != NULL) {
+    if (Tree->right != NULL)
+    {
         return  MaxValue(Tree->right);
     }
-    else {
+    else
+    {
         return Tree;
     }
 }
 
-int NumberOfNodes(BinTree* Tree) {
+int NumberOfNodes(BinTree* Tree)
+{
     if (Tree == NULL) return 0;
     return NumberOfNodes(Tree->left) + 1+ NumberOfNodes(Tree->right);
 }
@@ -98,7 +111,8 @@ int List(BinTree* node)
     return  ListCount(node->left) * ListCount(node->right);
 }
 
-int HeightBTree(BinTree* Tree) {
+int HeightBTree(BinTree* Tree)
+{
     int x = 0, y = 0;
     if (Tree == NULL) return 0;
     if(Tree->left) x = HeightBTree(Tree->left);
@@ -106,7 +120,8 @@ int HeightBTree(BinTree* Tree) {
     if (x > y) return x + 1;
     else return y + 1;
 }
-BinTree* Search(BinTree* Tree, int key) {
+BinTree* Search(BinTree* Tree, int key)
+{
     if (Tree == NULL) return NULL;
     if  (Tree->value == key) return Tree;
     if (key < Tree->value) return Search(Tree->left, key);
@@ -114,6 +129,35 @@ BinTree* Search(BinTree* Tree, int key) {
         return Search(Tree->right, key);
 }
  
+BinTree* SearchParrent(BinTree* Tree, BinTree* Son)
+{
+    if (Son == NULL) {
+        return NULL;
+    }
+    else if (Tree == Son)
+    {
+        return Son;
+    }
+    else if (Son->value == Tree->left->value)
+    {
+        return Tree;
+    }
+    else if (Son->value == Tree->right->value)
+    {
+        return Tree;
+    }
+    else if (Son->value > Tree->value)
+    {
+        return SearchParrent(Tree->right, Son);
+    }
+    else if(Son->value > Tree->value)
+    {
+        return SearchParrent(Tree->left, Son);
+    }
+    else
+        return NULL;
+}
+
 BinTree* DestroyBTree(BinTree* Tree) {
     if (Tree != NULL) {
         DestroyBTree(Tree->left);
@@ -169,10 +213,13 @@ int main() {
     Print(&Tree, 0);
     cout << "Прямой обход дерева" << endl;
     TreeTraversalAndPrint(Tree);
+    cout << endl;
     cout << "Обратный обход дерева" << endl;
     TreeTraversalAndPrint2(Tree);
+    cout << endl;
     cout << "Cимметричный обход дерева" << endl;
     TreeTraversalAndPrint3(Tree);
+    cout << endl;
     cout << "Минимальный элемент дерева-> ";
     BinTree* min = MinValue(Tree);
     cout << min->value;
@@ -198,10 +245,17 @@ int main() {
     cout << "Введите значение элемента для поиска-> ";
     cin >> key;
     BinTree* Tree1 = Search(Tree,key);
+    BinTree* Tree2 = SearchParrent(Tree,Tree1);
     if (Tree1 == NULL)
-        cout << "Элемент не найден";
+        cout << "Элемент не найден" << endl;
     else
         cout << "Ваш элемент->" << Tree1->value;
+    if (Tree2 == Tree1 && Tree2 != NULL)
+        cout << "Отца нет. это корень!";
+    else if (Tree2 == NULL)
+        cout << "Он ушёл за хлебом"<< endl;
+    else
+        cout << "Отец найден это ->" << Tree2->value;
     cout << endl;
     cout << "Введите значение элемента для поиска и удаления-> ";
     cin >> key;

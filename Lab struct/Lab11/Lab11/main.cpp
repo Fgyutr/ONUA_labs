@@ -4,6 +4,7 @@ using namespace std;
 
 void SincAutomat()
 {
+    
     string Start, End;
     cout << "Введите строку: \n";
     cin >> Start;

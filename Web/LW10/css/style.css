@@ -1,0 +1,170 @@
+* {
+    transition: all 1s .5s;
+    margin: 0 auto;
+}
+body {
+    background-color: #fefeef;
+}
+h1 {
+    text-align: center;  
+}
+h1:hover {
+    text-shadow: 5px 5px 1px rgb(190, 190, 190);
+    color: blueviolet; 
+}
+.blocks>* {
+    width: 200px;
+    height: 100px;
+    background-color: #000;
+    margin-top: 15px;
+}
+.block_1:hover {
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: blueviolet;
+}
+.block_2:hover {
+    border: 10px inset rgb(192, 18, 149);
+    background-color: blueviolet;
+}
+.block_3:hover {
+    outline: solid red 5px;
+    outline-offset: 5px;
+    background-color: blueviolet;
+    border: 5px inset rgb(0, 0, 0);
+}
+.block_4:hover {
+    height: 90px;
+    width: 250px;
+    background-color: blueviolet;
+    box-shadow: 0px 10px 20px rgb(109, 104, 104);
+}
+@keyframes circle {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes popping {
+    0% {
+        transform: scale(0.1, 0.1);
+      }
+    
+      50% {
+        transform: scale(1, 1);
+      }
+    
+      100% {
+        transform: scale(0.1, 0.1);
+      }
+}
+
+.preloaders {
+    display: block;
+    margin-top: 50px;
+}
+.preloader_1 {
+    border: 10px solid rgba(255, 0, 0, 0.3);
+    border-left-color: red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation-name: circle;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.preloader_2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin-top: 25px;
+}
+.preloader_2 .preloader__item {
+    background-color: blue;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    animation-name: popping;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+.preloader_2 .preloader__item:nth-of-type(2) {
+    animation-delay: 0.2s;
+}
+.preloader_2 .preloader__item:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes pulsing {
+    0% {
+        transform: scale(0.1, 0.1);
+        border-radius: 50%;
+        background-color: #000;
+      }
+    
+      50% {
+        transform: scale(1, 1);
+        border-radius: 25%;
+        background-color: blueviolet;
+      }
+    
+      100% {
+        transform: scale(0.1, 0.1);
+        border-radius: 0%;
+        background-color: rgb(201, 8, 66);
+      }
+}
+.pulsing_block {
+    margin-top: 25px;
+    width: 200px;
+    height: 200px;
+    animation-name: pulsing;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.word {
+    display: block;
+    margin: 25px auto;
+    font-size: 100px;
+    text-align: center;
+    background-color: #000000;
+    width: 500px;
+    border-radius: 30px;
+}
+.word>* {
+    display: inline-block;
+}
+
+.word:hover div {
+    animation-name: bounceInDown;
+}
+
+.word div:first-of-type {
+    color: red;
+}
+.word div:nth-of-type(2) {
+    animation-delay: 0.5s;
+    color: orange;
+}
+.word div:nth-of-type(3) {
+    animation-delay: 1s;
+    color:yellow;
+}
+.word div:nth-of-type(4) {
+    animation-delay: 1.5s;
+    color:green;
+}
+.word div:nth-of-type(5) {
+    animation-delay: 2s;
+    color:blue;
+}
+.word div:nth-of-type(6) {
+    animation-delay: 2.5s;
+    color:violet;
+}
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Table</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="info">
+                <h1 class="title">All Customers</h1>
+                <div class="descr">Active Members</div>
+            </div>
+            <div class="search_pannel">
+                <img src="icons/search_1.svg" alt="loop">
+                <input type="text" name="search" class="table_search" placeholder="Search">
+            </div>
+            <div class="selection">
+                <label for="sort" class="sort_label">Sort by:</label>
+                <select name="sort" class="table_sort">
+                    <option>Newest</option>
+                    <option>Alphabet</option>
+                    <option>Status</option>
+                </select>
+            </div>
+        </nav>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Company</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Country</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jane Cooper</td>
+                    <td>Microsoft</td>
+                    <td>(225) 555-0118</td>
+                    <td>jane@microsoft.com</td>
+                    <td>United States</td>
+                    <td class="active">Active</td>
+                </tr>
+                <tr>
+                    <td>Floyd Miles</td>
+                    <td>Yahoo</td>
+                    <td>(205) 555-0100</td>
+                    <td>floyd@yahoo.com</td>
+                    <td>Kiribati</td>
+                    <td class="inactive">Inactive</td>
+                </tr>
+                <tr>
+                    <td>Ronald Richards</td>
+                    <td>Adobe</td>
+                    <td>(302) 555-0107</td>
+                    <td>ronald@adobe.com</td>
+                    <td>Israel</td>
+                    <td class="inactive">Inactive</td>
+                </tr>
+                <tr>
+                    <td>Marvin McKinney</td>
+                    <td>Tesla</td>
+                    <td>(252) 555-0126</td>
+                    <td>marvin@tesla.com</td>
+                    <td>Iran</td>
+                    <td class="active">Active</td>
+                </tr>
+                <tr>
+                    <td>Jerome Bell</td>
+                    <td>Google</td>
+                    <td>(629) 555-0129</td>
+                    <td>jerome@google.com</td>
+                    <td>Réunion</td>
+                    <td class="active">Active</td>
+                </tr>
+                <tr>
+                    <td>Katdryn Murphy</td>
+                    <td>Microsoft</td>
+                    <td>(406) 555-0120</td>
+                    <td>katdryn@microsoft.com</td>
+                    <td>Curaçao</td>
+                    <td class="active">Active</td>
+                </tr>
+                <tr>
+                    <td>Jacob Jones</td>
+                    <td>Yahoo</td>
+                    <td>(208) 555-0112</td>
+                    <td>jacob@yahoo.com</td>
+                    <td>Brazil</td>
+                    <td class="active">Active</td>
+                </tr>
+                <tr>
+                    <td>Kristin Watson</td>
+                    <td>Facebook</td>
+                    <td>(704) 555-0127</td>
+                    <td>kristin@facebook.com</td>
+                    <td>Åland Islands</td>
+                    <td class="inactive">Inactive</td>
+                </tr>
+            </tbody>  
+        </table>
+    </div>  
+</body>
+</html>
